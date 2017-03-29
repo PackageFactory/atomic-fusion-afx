@@ -2,30 +2,31 @@
 namespace PackageFactory\AtomicFusion\AFX\Service;
 
 use Neos\Flow\Annotations as Flow;
+use Neos\Fusion;
 use Neos\Utility\Arrays;
 use PackageFactory\Afx\Parser as AfxParser;
 use PackageFactory\AtomicFusion\AFX\Exception\Exception;
+use Neos\Fusion\Core\DslInterface as FusionDslInterface;
 
 /**
  * Class AfxService
  * @package PackageFactory\AtomicFusion\AFX\Service
  * @Flow\Scope("singleton")
  */
-class AfxService
+class AfxService implements FusionDslInterface
 {
 
     const INDENTATION = '    ';
 
     /**
-     * @var string $afxCode the AFX code that is converted
-     * @var string $indentation Indentation to start with
+     * @param string $code
      * @return string
      */
-    public static function convertAfxToFusion($afxCode, $indentation = '')
+    public function transpile($code)
     {
-        $parser = new AfxParser($afxCode);
+        $parser = new AfxParser($code);
         $ast = $parser->parse();
-        $fusion = self::astNodeToFusion($ast, $indentation);
+        $fusion = self::astNodeToFusion($ast, '');
         return $fusion;
     }
 
