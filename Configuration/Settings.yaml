@@ -1,0 +1,5 @@
+
+Neos:
+  Fusion:
+    dsl:
+      afx: PackageFactory\AtomicFusion\AFX\Service\AfxService
