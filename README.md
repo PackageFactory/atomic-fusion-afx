@@ -1,4 +1,6 @@
-# PackageFactory.AtomicFusion.AFX
+# DEPRECATED PackageFactory.AtomicFusion.AFX
+
+**This package is deprecated in favor of https://github.com/neos/fusion-afx. This package will stay available for existing setups that depend on it but no bugfixes nor features will be added here.**
 
 > JSX inspired compact syntax for Neos.Fusion
 
